@@ -5,6 +5,10 @@ mysql-connector-python
 pymysql
 scikit-learn
 seaborn
-catboost
-xgboost
-# -e .
+# catboost
+# xgboost
+Flask
+dill
+mlflow==2.2.2
+
+#-e .
