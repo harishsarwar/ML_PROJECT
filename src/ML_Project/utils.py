@@ -3,8 +3,8 @@ import sys
 from src.ML_Project.exception import CustomException
 from src.ML_Project.logger import logging
 import pandas as pd
-from dotenv import load_dotenv
-import pymysql
+# from dotenv import load_dotenv
+# import pymysql
 
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import r2_score
@@ -13,31 +13,31 @@ import pickle
 import numpy as np
 
 
-load_dotenv()
+# load_dotenv()
 
-host =os.getenv("host")
-user = os.getenv("user")
-password = os.getenv("password")
-db = os.getenv("db")
+# host =os.getenv("host")
+# user = os.getenv("user")
+# password = os.getenv("password")
+# db = os.getenv("db")
 
-def read_sql_data():
-    logging.info("Reading SQL database started")
-    try:
-        mydb = pymysql.connect(
-            host=host,
-            user=user,
-            password=password,
-            db=db,
-        )
-        logging.info("Connection Establised", mydb)
+# def read_sql_data():
+#     logging.info("Reading SQL database started")
+#     try:
+#         mydb = pymysql.connect(
+#             host=host,
+#             user=user,
+#             password=password,
+#             db=db,
+#         )
+#         logging.info("Connection Establised", mydb)
 
-        df=pd.read_sql_query("select * from students", mydb)
-        print(df.head())
+#         df=pd.read_sql_query("select * from students", mydb)
+#         print(df.head())
 
-        return df
+#         return df
 
-    except Exception as ex:
-        raise CustomException(ex)
+#     except Exception as ex:
+#         raise CustomException(ex)
     
 
     

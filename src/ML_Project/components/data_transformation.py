@@ -15,7 +15,7 @@ from src.ML_Project.logger import logging
 
 import os
 
-@ dataclass
+@dataclass
 class DataTransformationConfig:
     preprocessor_obj_file_path = os.path.join('artifacts', 'preprocessor.pkl')
 
@@ -38,7 +38,7 @@ class DataTransformation:
             ]
             num_pipeline = Pipeline(steps=[
                 ('imputer', SimpleImputer(strategy='median')),
-                ('scalar', StandardScaler())
+                ('scaler', StandardScaler())
             ])
             cat_pipeline = Pipeline(steps=[
                 ('imputer', SimpleImputer(strategy='most_frequent')),

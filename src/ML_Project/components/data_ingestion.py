@@ -3,11 +3,13 @@ import sys
 from src.ML_Project.exception import CustomException
 from src.ML_Project.logger import logging
 import pandas as pd
-from src.ML_Project.utils import read_sql_data
+# from src.ML_Project.utils import read_sql_data
 
 from sklearn.model_selection import train_test_split
 
 from dataclasses import dataclass
+
+from src.ML_Project.components.data_transformation import DataTransformationConfig,DataTransformation
 
 
 @dataclass
@@ -48,4 +50,8 @@ class DataIngestion:
 if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
+
+    data_transformation = DataTransformation()
+    data_transformation.intiate_data_transformation(train_path=train_data,test_path=test_data)
+
 
