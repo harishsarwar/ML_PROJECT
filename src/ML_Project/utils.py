@@ -1,5 +1,6 @@
 import os
 import sys
+import dill
 from src.ML_Project.exception import CustomException
 from src.ML_Project.logger import logging
 import pandas as pd
@@ -83,5 +84,13 @@ def evaluate_models(X_train,y_train,X_test,y_test,models,param):
         return report
 
 
+    except Exception as e:
+        raise CustomException(e, sys)
+
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            return dill.load(file_obj)
     except Exception as e:
         raise CustomException(e, sys)
